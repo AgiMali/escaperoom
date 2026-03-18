@@ -1,10 +1,10 @@
 :root {
-  --bg: #f7f7f4;
-  --text: #111111;
-  --muted: #5a5a5a;
-  --panel: #ffffff;
-  --line: rgba(17, 17, 17, 0.08);
-  --shadow: 0 22px 50px rgba(0, 0, 0, 0.08);
+  --bg: #efe2c4;
+  --text: #1f1710;
+  --muted: #5d4c3e;
+  --panel: rgba(255, 249, 237, 0.94);
+  --line: rgba(72, 49, 28, 0.14);
+  --shadow: 0 24px 60px rgba(56, 35, 16, 0.18);
   --green: #b8e28b;
   --blue: #71b9e6;
   --pink: #f27479;
@@ -26,12 +26,24 @@ body {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, "Times New Roman", serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(113, 185, 230, 0.18), transparent 26%),
-    radial-gradient(circle at bottom right, rgba(242, 116, 121, 0.16), transparent 24%),
+    radial-gradient(circle at top left, rgba(167, 119, 57, 0.18), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(99, 61, 29, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(255, 248, 232, 0.92), rgba(232, 214, 180, 0.9)),
     var(--bg);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(120, 90, 54, 0.04) 0, rgba(120, 90, 54, 0.04) 2px, transparent 2px, transparent 12px),
+    repeating-linear-gradient(0deg, rgba(120, 90, 54, 0.03) 0, rgba(120, 90, 54, 0.03) 2px, transparent 2px, transparent 14px);
+  opacity: 0.45;
 }
 
 .page {
@@ -61,29 +73,57 @@ body {
 
 .access-card {
   width: min(520px, 100%);
-  padding: 32px;
+  padding: 38px 34px;
   border-radius: 32px;
-  background: rgba(255, 255, 255, 0.96);
+  background:
+    linear-gradient(180deg, rgba(255, 251, 244, 0.98), rgba(245, 230, 201, 0.95));
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.access-card::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(97, 63, 30, 0.16);
+  border-radius: 24px;
+  pointer-events: none;
 }
 
 .access-card .field,
 .access-card .message {
   text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
 .access-card h1 {
-  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
-  line-height: 1.05;
-  margin-bottom: 18px;
+  font-size: clamp(2.1rem, 4vw, 3.3rem);
+  line-height: 1.02;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.access-lead {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #4d351f;
+  position: relative;
+  z-index: 1;
 }
 
 .access-text {
-  margin: 0 0 18px;
+  margin: 0 0 22px;
   color: var(--muted);
   font-size: 1rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
 .eyebrow {
@@ -283,8 +323,9 @@ h2 {
 }
 
 .check-btn {
-  background: #111111;
-  color: #ffffff;
+  background: linear-gradient(180deg, #4c2d18, #2e180b);
+  color: #fff9ef;
+  box-shadow: 0 12px 26px rgba(60, 34, 12, 0.22);
 }
 
 .board-wrap {
@@ -372,11 +413,12 @@ input {
   min-height: 48px;
   margin: 8px 0 10px;
   padding: 10px 14px;
-  border: 1px solid rgba(17, 17, 17, 0.15);
+  border: 1px solid rgba(72, 49, 28, 0.18);
   border-radius: 20px;
   font: inherit;
   font-size: 1rem;
   text-transform: uppercase;
+  background: rgba(255, 252, 246, 0.92);
 }
 
 .message {
