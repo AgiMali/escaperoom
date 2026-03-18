@@ -69,6 +69,20 @@ body::before {
   display: grid;
   place-items: center;
   padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.access-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 224, 163, 0.24), transparent 24%),
+    radial-gradient(circle at 20% 80%, rgba(106, 63, 30, 0.2), transparent 28%),
+    radial-gradient(circle at 82% 22%, rgba(83, 52, 25, 0.16), transparent 24%),
+    linear-gradient(180deg, rgba(27, 18, 11, 0.78), rgba(59, 38, 23, 0.58));
+  z-index: 0;
 }
 
 .access-card {
@@ -76,20 +90,33 @@ body::before {
   padding: 38px 34px;
   border-radius: 32px;
   background:
-    linear-gradient(180deg, rgba(255, 251, 244, 0.98), rgba(245, 230, 201, 0.95));
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+    linear-gradient(180deg, rgba(255, 248, 234, 0.98), rgba(232, 214, 181, 0.95));
+  border: 1px solid rgba(104, 71, 38, 0.22);
+  box-shadow:
+    0 28px 70px rgba(16, 9, 4, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
   text-align: center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .access-card::before {
   content: "";
   position: absolute;
   inset: 14px;
-  border: 1px solid rgba(97, 63, 30, 0.16);
+  border: 1px solid rgba(97, 63, 30, 0.22);
   border-radius: 24px;
+  pointer-events: none;
+}
+
+.access-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.32), transparent 30%),
+    repeating-linear-gradient(0deg, rgba(125, 92, 58, 0.035) 0, rgba(125, 92, 58, 0.035) 2px, transparent 2px, transparent 14px);
   pointer-events: none;
 }
 
@@ -101,11 +128,12 @@ body::before {
 }
 
 .access-card h1 {
-  font-size: clamp(2.1rem, 4vw, 3.3rem);
-  line-height: 1.02;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 0.98;
   margin-bottom: 16px;
   position: relative;
   z-index: 1;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.25);
 }
 
 .access-lead {
@@ -326,6 +354,11 @@ h2 {
   background: linear-gradient(180deg, #4c2d18, #2e180b);
   color: #fff9ef;
   box-shadow: 0 12px 26px rgba(60, 34, 12, 0.22);
+}
+
+.access-card .check-btn {
+  min-width: 140px;
+  margin-top: 4px;
 }
 
 .board-wrap {
