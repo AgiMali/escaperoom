@@ -134,6 +134,17 @@ function unlockApp() {
 }
 
 function lockApp() {
+  const attempt = window.prompt("Podaj haslo, aby zamknac dostep:");
+
+  if (attempt === null) {
+    return;
+  }
+
+  if (normalizeText(attempt) !== normalizeText(ACCESS_PASSWORD)) {
+    window.alert("Niepoprawne haslo.");
+    return;
+  }
+
   $("#doorOverlay").classList.add("hidden");
   $("#panelScreen").classList.add("hidden");
   $("#groupScreen").classList.remove("hidden");
