@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escape Room - Od w&#322;&#243;kna do ubrania</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="screen screen-groups" id="groupScreen">
+      <p class="eyebrow">Escape room</p>
+      <h1>Wybierz swoj&#261; grup&#281;</h1>
+      <div class="group-grid" id="groupGrid"></div>
+
+      <section class="final-card">
+        <h2 class="final-title">Zamek</h2>
+        <p class="final-text" id="keyHint"></p>
+        <p class="legend-note">Pomara&#324;czowe oznaczenie grupy znaczy, &#380;e skorzysta&#322;a z ko&#322;a ratunkowego.</p>
+        <div class="symbol-strip" id="symbolStrip"></div>
+
+        <label class="field" for="finalCodeInput">Wpisz kod ko&#324;cowy</label>
+        <input id="finalCodeInput" type="text" autocomplete="off" />
+        <button class="check-btn" id="finalCheckButton" type="button">Otw&#243;rz drzwi</button>
+        <p class="message" id="finalMessage"></p>
+      </section>
+    </section>
+
+    <section class="screen screen-panel hidden" id="panelScreen">
+      <div class="panel-top">
+        <button class="back-btn" id="backButton" type="button">Powr&#243;t do grup</button>
+        <p class="panel-subtitle">Kliknij numer po rozwi&#261;zaniu zadania z kodu QR.</p>
+      </div>
+
+      <h2 id="panelTitle">Grupa I - panel zada&#324;</h2>
+
+      <div class="board-wrap">
+        <div class="task-board" id="taskBoard"></div>
+
+        <aside class="side-card">
+          <p class="side-label">Odkryte litery</p>
+          <div class="revealed-word" id="revealedWord">-</div>
+
+          <label class="field" for="answerInput">Wpisz has&#322;o grupy</label>
+          <input id="answerInput" type="text" autocomplete="off" />
+
+          <div class="panel-actions">
+            <button class="check-btn" id="checkButton" type="button">Sprawd&#378;</button>
+            <button class="help-btn" id="hintButton" type="button">Ko&#322;o ratunkowe</button>
+          </div>
+          <p class="message" id="message"></p>
+
+          <div class="hint-box hidden" id="hintBox">
+            <p class="side-label">Podpowied&#378;</p>
+            <p class="hint-text" id="hintText"></p>
+          </div>
+
+          <div class="reward-box hidden" id="rewardBox">
+            <p class="side-label">Wasz znak do zamka</p>
+            <div class="reward-symbol" id="rewardSymbol"></div>
+            <p class="reward-text" id="rewardText"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="door-overlay hidden" id="doorOverlay">
+    <div class="door door-left"></div>
+    <div class="door door-right"></div>
+
+    <div class="door-scene">
+      <div class="door-badge">ODNALEZIONE</div>
+      <h2>Brawo!</h2>
+      <p>Dotarli&#347;cie do celu.</p>
+      <p>Odnale&#378;li&#347;cie zaginion&#261; bel&#281; materia&#322;u.</p>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
