@@ -50,7 +50,6 @@ const GROUPS = [
 ];
 
 const ACCESS_PASSWORD = "0538";
-const ACCESS_STORAGE_KEY = "escape-room-access-ok";
 const SESSION_STORAGE_KEY = "escape-room-session-v1";
 const REWARD_POOL = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "R", "S", "T", "U", "W", "X", "Y", "2", "3", "4", "5", "6", "7", "8", "9"];
 
@@ -131,7 +130,21 @@ function normalizeText(text) {
 function unlockApp() {
   $("#accessScreen").classList.add("hidden");
   $("#appShell").classList.remove("hidden");
-  window.sessionStorage.setItem(ACCESS_STORAGE_KEY, "1");
+  $("#accessPasswordInput").value = "";
+}
+
+function lockApp() {
+  $("#doorOverlay").classList.add("hidden");
+  $("#panelScreen").classList.add("hidden");
+  $("#groupScreen").classList.remove("hidden");
+  $("#appShell").classList.add("hidden");
+  $("#accessScreen").classList.remove("hidden");
+  $("#accessPasswordInput").value = "";
+  $("#accessMessage").textContent = "";
+  $("#finalCodeInput").value = "";
+  $("#finalMessage").textContent = "";
+  selectedGroupId = null;
+  revealUsedThisVisit = false;
 }
 
 function checkAccessPassword() {
@@ -144,7 +157,7 @@ function checkAccessPassword() {
     return;
   }
 
-  message.textContent = "To haslo jest niepoprawne.";
+  message.textContent = "To hasło jest niepoprawne.";
 }
 
 function getGroup(groupId = selectedGroupId) {
@@ -382,6 +395,7 @@ function bindControls() {
       checkAccessPassword();
     }
   });
+  $("#lockButton").addEventListener("click", lockApp);
   $("#backButton").addEventListener("click", closeGroup);
   $("#checkButton").addEventListener("click", checkAnswer);
   $("#hintButton").addEventListener("click", showHint);
@@ -389,9 +403,6 @@ function bindControls() {
 }
 
 function init() {
-  if (window.sessionStorage.getItem(ACCESS_STORAGE_KEY) === "1") {
-    unlockApp();
-  }
   renderKeyHint();
   renderSymbolStrip();
   renderGroupTiles();

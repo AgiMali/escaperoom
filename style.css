@@ -53,6 +53,12 @@ body::before {
   padding: 18px 0 20px;
 }
 
+.top-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
 .hidden {
   display: none !important;
 }
@@ -320,7 +326,8 @@ h2 {
 
 .back-btn,
 .check-btn,
-.help-btn {
+.help-btn,
+.lock-btn {
   min-height: 48px;
   padding: 10px 18px;
   border: 0;
@@ -331,7 +338,8 @@ h2 {
 }
 
 .back-btn,
-.help-btn {
+.help-btn,
+.lock-btn {
   color: #111111;
 }
 
@@ -348,6 +356,11 @@ h2 {
 .help-btn {
   background: #ececec;
   color: #111111;
+}
+
+.lock-btn {
+  background: rgba(255, 248, 234, 0.92);
+  border: 1px solid rgba(72, 49, 28, 0.18);
 }
 
 .check-btn {
