@@ -7,7 +7,19 @@
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main class="page">
+  <section class="access-screen" id="accessScreen">
+    <div class="access-card">
+      <p class="eyebrow">Wejście</p>
+      <h1>Tajemnica zaginionej Beli</h1>
+      <p class="access-text">Wpisz hasło, aby otworzyć escape room.</p>
+      <label class="field" for="accessPasswordInput">Hasło dostępu</label>
+      <input id="accessPasswordInput" type="password" autocomplete="off" />
+      <button class="check-btn" id="accessButton" type="button">Wejdź</button>
+      <p class="message" id="accessMessage"></p>
+    </div>
+  </section>
+
+  <main class="page hidden" id="appShell">
     <section class="screen screen-groups" id="groupScreen">
       <p class="eyebrow">Escape room</p>
       <h1>Wybierz swoj&#261; grup&#281;</h1>

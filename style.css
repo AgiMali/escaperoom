@@ -41,11 +41,43 @@ body {
   padding: 18px 0 20px;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .screen.hidden,
 .reward-box.hidden,
 .hint-box.hidden,
 .door-overlay.hidden {
   display: none;
+}
+
+.access-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.access-card {
+  width: min(520px, 100%);
+  padding: 32px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.access-card .field,
+.access-card .message {
+  text-align: left;
+}
+
+.access-text {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 1rem;
 }
 
 .eyebrow {
